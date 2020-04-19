@@ -50,18 +50,18 @@
             content:'<h1>无法形容</h1>',
         });
         addMarker({
-            coords:{coords:{lat:42.4668,lng=-70.9496},
+            coords:{lat:42.4668,lng=-70.9496},
             iconImage:'https://developers.google.com/maps/documentaion/jaascripts/full/images/beachflag.png',
-            content:'<h1>lynn my</h1>'
-            });
+            content:'<h1>lynn my</h1>',
+        }) ;
 
-        addMarker(
-            coords: {coords:{lat:42.3425,lng=-70.4543},
+        addMarker({
+            coords:{lat:42.3425,lng=-70.4543},
             content:'<h1>comeing</h1>',
 
             });
-        addMarker(
-            coords:{coords:{lat:42.4232,lng=-70.3422},
+        addMarker({
+            coords:{lat:42.4232,lng=-70.3422},
             content:'<h1>elese</h1>'
             });
         
@@ -76,14 +76,16 @@
         }
         if(props.content){
             var infoWindwon = new google.maps.infoWindwon({
-            content:
+            content:prompt.content,
         });
         marker.addListener('click',function(){
             infoWindwon.open(map,marker);
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCbfMQ2cGvRY0Pj148CaerYBafgoIMnBg&callback=initMap
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCbfMQ2cGvRY0Pj148CaerYBafgoIMnBg&callback=initMap"
     async defer></script>
+    // <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCbfMQ2cGvRY0Pj148CaerYBafgoIMnBg&callback=initMap>
+    // </script>
   </body>
 </html>

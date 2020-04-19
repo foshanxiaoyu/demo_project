@@ -1,0 +1,54 @@
+<!-- <html>
+<head>
+<script type="text/javascript">
+function x(response) {
+  var meta = response.meta;
+  var data = response.data;
+  console.log(meta);
+  console.log(data);
+}
+
+var script = document.createElement('script');
+script.src = 'https://api.github.com?callback=x';
+
+document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+</head>
+
+<body>
+  <p>Open up your browser's console.</p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>共享地址簿组件 Web 版</title>
+</head>
+<body>
+    <div id="address">收货地址读取中……</div>
+    <script src="http://tjs.sjs.sinajs.cn/open/thirdpart/js/frame/appclient.js" charset="utf-8"></script>
+    <script>
+        function $(o){
+            return document.getElementById(o);
+        }
+        // 显示地址组件返回的地址
+        function showAddress(addr){
+            var address = $("address");
+            if(addr == null){
+                address.innerHTML = "没有默认收货地址";
+            } else {
+                address.innerHTML = addr.name + " " + addr.mobile + " " + addr.address;
+            }
+        }
+        // 获取当前登录用户的默认收货地址
+        App.trigger('deliverAddress:default', showAddress);
+ 
+        // 给地址区域绑定点击事件，点击该区域，唤起地址组件选择界面
+        $('address').onclick = function(){
+            App.trigger('deliverAddress:change',  showAddress);
+        };
+    </script>
+</body>
+</html>
